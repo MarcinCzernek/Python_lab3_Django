@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <center>
+        <h1>Edit, Delete, Add, View employees</h1>
+        <h2>Python Django Laboratorium</h2>
+        <hr/>
+        <table border="1">
+            <tr>
+                <th>Employee id</th>
+                <th>Employee Name</th>
+                <th>Email</th>
+                <th>Salary</th>
+            </tr>
+            {% for employee in Employee %}
+            <tr>
+                <td>{{ employee.id }}</td>
+                <td>{{ employee.name }}</td>
+                <td>{{ employee.email }}</td>
+                <td>{{ employee.salary }}</td>
+                <td><a href="/employee/edit/{{ employee.id }}">Edit</a></td>
+                <td><a href="/delete/{{ employee.id }}"onclick="return confirm('Are you sure you want to delete?')">Delete</a></td>
+            </tr>
+            {%  endfor %}
+        </table>
+    <br>
+        <a href="/employee/add/">Add employee to list</a><br><br>
+        <a href="home/">Back to main menu</a><br>
+
+    </center>
+</body>
+</html>

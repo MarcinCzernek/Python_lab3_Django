@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <center>
+        <h1>Edit news</h1>
+        <h2>Django Python Laboratorium</h2>
+        <hr/>
+        <table border="1">
+            <tr>
+                <th>News id</th>
+                <th>Topic</th>
+                <th>Author</th>
+                <th>Text</th>
+                <th>Create time</th>
+                <th>Last Edit time</th>
+
+            </tr>
+            {% for news in News %}
+            <tr>
+                   <td>{{ news.id}}</td>
+                   <td>{{ news.topic }}</td>
+                   <td> {{ news.author }}</td>
+                   <td> {{ news.text }}</td>
+                   <td> {{ news.create_time }}</td>
+                  <td>{{ news.last_edit_time }}</td>
+                <td><a href="/edit/{{ news.id }}">Edit</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <a href="/news/">Back to News index</a>
+    </center>
+</body>
+</html>

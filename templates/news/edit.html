@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit News details</title>
+</head>
+<body>
+   <center>
+       <h1>Edit News Record</h1>
+       <hr/>
+       <form method="post" action="/update/{{news.id}}">
+           {% csrf_token %}
+       <table border="1">
+           <tr>
+               <td>News Id</td>
+               <td><input type="text" name="id" value="{{news.id}}" readonly></td>
+           </tr>
+           <tr>
+               <td>News topic</td>
+               <td><input type="text" name="topic" value="{{news.topic}}"></td>
+           </tr>
+           <tr>
+               <td>Author</td>
+               <td><input type="text" name="author" value="{{news.author}}"></td>
+           </tr>
+           <tr>
+               <td>Text</td>
+               <td><input type="text" name="text" value="{{news.text}}"></td>
+           </tr>
+       </table>
+       <input type="submit" value="Update"/> | <a href="{% url 'view_news' %}">Back to Home Page</a>
+       {% if messages %}
+       {% for updaterecord in messages %}
+           <h3 style="color: green">{{updaterecord}}</h3>
+       {% endfor %}
+       {% endif %}
+       </form>
+   </center>
+</body>
+</html>

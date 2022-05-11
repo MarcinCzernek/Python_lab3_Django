@@ -1,0 +1,20 @@
+{% if news %}
+    <ul>
+    {% for n in news %}
+        <li><a href="/news/{{n.id}}/">{{n.topic}}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No news are available.</p>
+{% endif %}
+
+{% if user.is_authenticated %}
+<a href = "/news/add/" >Add news</a><br>
+{% endif %}
+
+{% if user.is_authenticated %}
+<a href = "/news/editnews/" >Edit news</a><br><br>
+{% endif %}
+<a href="home/">Back to main menu</a><br>
+
+
